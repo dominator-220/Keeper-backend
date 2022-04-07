@@ -17,10 +17,13 @@ const noteRoutes = require('./routes/note');
 
 app.use('/api', authRoutes);
 app.use('/api', noteRoutes);
+app.get('/', (req, res) => {
+	res.status(200).json({ "ITS": "WORLING" });
+})
 
 const port = process.env.PORT || 8000;
 
-const DB_CONNECTION  = `mongodb+srv://dominator1234:${process.env.DB_PWD}@keeper-cluster.a5fl7.mongodb.net/mykeeper?retryWrites=true&w=majority`;
+const DB_CONNECTION = `mongodb+srv://dominator1234:${process.env.DB_PWD}@keeper-cluster.a5fl7.mongodb.net/mykeeper?retryWrites=true&w=majority`;
 
 mongoose
 	.connect(
